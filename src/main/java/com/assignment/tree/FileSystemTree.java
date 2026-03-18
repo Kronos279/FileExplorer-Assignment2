@@ -1,4 +1,4 @@
-package com.assignment.tree;
+package main.java.com.assignment.tree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

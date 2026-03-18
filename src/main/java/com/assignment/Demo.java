@@ -1,8 +1,7 @@
-package com.assignment;
-
-import com.assignment.tree.FileSystemTree;
-import com.assignment.tree.TreeNode;
-import com.assignment.tree.TreeTraversal;
+package main.java.com.assignment;
+import main.java.com.assignment.tree.FileSystemTree;
+import main.java.com.assignment.tree.TreeNode;
+import main.java.com.assignment.tree.TreeTraversal;
 
 import java.util.List;
 import java.util.Scanner;
