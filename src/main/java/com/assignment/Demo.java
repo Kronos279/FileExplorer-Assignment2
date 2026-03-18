@@ -40,6 +40,7 @@ public class Demo {
             switch (command) {
                 case "ls"     -> handleLs();
                 case "mkdir"  -> handleMkdir(arg);
+                case "touch"  -> handleTouch(arg);
                 case "rm"     -> handleRm(arg);
                 case "mvin"   -> handleMvin(arg);
                 case "mvout"  -> handleMvout();
@@ -79,6 +80,19 @@ public class Demo {
         ok("Folder '" + name + "' created.");
     }
 
+    private void handleTouch(String name) {
+        if (name.isEmpty()) {
+            err("Usage: touch <file-name>");
+            return;
+        }
+        if (cwd.findChild(name) != null) {
+            err("'" + name + "' already exists.");
+            return;
+        }
+        // This uses your FileSystemTree's insertFile method
+        fs.insertFile(cwd, name);
+        ok("File '" + name + "' created.");
+    }
     // delete a named child from cwd
     private void handleRm(String name) {
         if (name.isEmpty())              { err("Usage: rm <name>"); return; }
@@ -138,6 +152,7 @@ public class Demo {
         System.out.println("  ├─────────────────┬─────────────────────────┤");
         System.out.println("  │ ls              │ list current directory  │");
         System.out.println("  │ mkdir <n>       │ create a folder         │");
+        System.out.println("  │ touch <n>       │ create a file           │");
         System.out.println("  │ rm <n>          │ delete file or folder   │");
         System.out.println("  │ mvin <n>        │ enter a child folder    │");
         System.out.println("  │ mvout           │ go up one level         │");
